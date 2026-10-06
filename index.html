@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نشان - نقشه و جهت‌یابی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- هدر -->
+        <header>
+            <h1>🗺️ نشان</h1>
+            <p>نقشه، جهت‌یابی و جستجو</p>
+        </header>
+
+        <!-- بخش جستجو -->
+        <div class="search-section">
+            <div class="tab-buttons">
+                <button class="tab-btn active" onclick="switchTab('search')">جستجو</button>
+                <button class="tab-btn" onclick="switchTab('location')">موقعیت من</button>
+                <button class="tab-btn" onclick="switchTab('route')">مسیر</button>
+            </div>
+
+            <!-- تب جستجو -->
+            <div id="search" class="tab-content active">
+                <input type="text" id="searchInput" placeholder="جستجو کنید (مثلاً: فرودگاه امام)">
+                <button onclick="searchPlace()">🔍 جستجو</button>
+                <div id="searchResults" class="results"></div>
+            </div>
+
+            <!-- تب موقعیت -->
+            <div id="location" class="tab-content">
+                <button onclick="getMyLocation()">📍 موقعیت من</button>
+                <div id="locationInfo" class="info-box"></div>
+            </div>
+
+            <!-- تب مسیر -->
+            <div id="route" class="tab-content">
+                <input type="text" id="fromInput" placeholder="از کجا؟">
+                <input type="text" id="toInput" placeholder="به کجا؟">
+                <button onclick="getRoute()">🚗 مسیر</button>
+                <div id="routeInfo" class="info-box"></div>
+            </div>
+        </div>
+
+        <!-- نقشه -->
+        <div id="map"></div>
+
+        <!-- پاورقی -->
+        <footer>
+            <p>✅ سازگار با iPhone 5s و دستگاه‌های قدیمی</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
